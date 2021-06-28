@@ -1,0 +1,2 @@
+# SubjectReview-forAndoid
+Androidアプリケーションで科目評価を行うためだけのアプリケーション
