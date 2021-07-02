@@ -8,7 +8,9 @@ open class Review : RealmObject(){
     @PrimaryKey
     var id: Long = 0
     var date: Date = Date()
-    var title: String = ""
+    var year: Date = Date()
+    //var title: String = ""
+    var teacher: String = ""
     var point: Int = 0
     var detail: String = ""
 }

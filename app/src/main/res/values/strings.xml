@@ -15,4 +15,8 @@
     <string name="subject_text">科目名</string>
     <string name="save_text">保存</string>
     <string name="delete_text">削除</string>
+    <string name="year_text">受講年</string>
+    <string name="teacher_name">担当教員名</string>
+    <string name="point_text">授業評価(1～5)</string>
+    <string name="detail_text">評価の詳細</string>
 </resources>
