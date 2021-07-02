@@ -30,10 +30,18 @@
         <action
             android:id="@+id/action_to_subjectEditFragment"
             app:destination="@id/subjectEditFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_reviewEditFragment"
+            app:destination="@id/reviewEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/subjectEditFragment"
         android:name="com.example.subjectreview.SubjectEditFragment"
         android:label="@string/subject_edit_text"
         tools:layout="@layout/fragment_subject_edit" />
+    <fragment
+        android:id="@+id/reviewEditFragment"
+        android:name="com.example.subjectreview.ReviewEditFragment"
+        android:label="fragment_review_edit"
+        tools:layout="@layout/fragment_review_edit" />
 </navigation>
