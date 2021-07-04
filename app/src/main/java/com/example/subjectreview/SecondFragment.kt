@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.subjectreview.databinding.FragmentSecondBinding
 import io.realm.Realm
+import io.realm.kotlin.where
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -35,6 +37,19 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.list.layoutManager = LinearLayoutManager(context)
+        val subject = realm.where<Subject>().findAll()
+        val adapter = SubjectAdapter(subject)
+        binding.list.adapter = adapter
+
+        adapter.setOnItemClickListener {
+            id->id?.let {
+            val action =
+                SecondFragmentDirections.actionSecondFragmentToReviewShowFragment(it)
+                findNavController().navigate(action)
+            }
+        }
+        (activity as? MainActivity)?.setFabVisible(View.INVISIBLE)
 
     }
 }

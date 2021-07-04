@@ -45,6 +45,8 @@ class FirstFragment : Fragment() {
         val subjects = realm.where<Subject>().findAll()
         val adapter = SubjectAdapter(subjects)
         binding.list.adapter = adapter
+
+
     }
 
     override fun onDestroyView() {

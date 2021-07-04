@@ -9,7 +9,9 @@ class SubjectReviewApplication : Application() {
         super.onCreate()
         Realm.init(this)
         val config = RealmConfiguration.Builder()
-            .allowWritesOnUiThread(true).deleteRealmIfMigrationNeeded().build()
+            .allowWritesOnUiThread(true)
+                .deleteRealmIfMigrationNeeded()
+                .build()
         Realm.setDefaultConfiguration(config)
     }
 }

@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.subjectreview.databinding.ActivityMainBinding
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             view ->
             naviController.navigate(R.id.action_to_subjectEditFragment)
         }
+
     }
 
     override fun onSupportNavigateUp()
@@ -33,4 +35,6 @@ class MainActivity : AppCompatActivity() {
     fun setFabVisible(visibility: Int){
         binding.fab.visibility = visibility
     }
+
+
 }

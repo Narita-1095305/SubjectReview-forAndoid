@@ -31,8 +31,8 @@
             android:id="@+id/action_to_subjectEditFragment"
             app:destination="@id/subjectEditFragment" />
         <action
-            android:id="@+id/action_SecondFragment_to_reviewEditFragment"
-            app:destination="@id/reviewEditFragment" />
+            android:id="@+id/action_SecondFragment_to_reviewShowFragment"
+            app:destination="@id/reviewShowFragment" />
     </fragment>
     <fragment
         android:id="@+id/subjectEditFragment"
@@ -43,5 +43,23 @@
         android:id="@+id/reviewEditFragment"
         android:name="com.example.subjectreview.ReviewEditFragment"
         android:label="fragment_review_edit"
-        tools:layout="@layout/fragment_review_edit" />
+        tools:layout="@layout/fragment_review_edit" >
+        <argument
+            android:name="subjectId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewShowFragment"
+        android:name="com.example.subjectreview.ReviewShowFragment"
+        android:label="fragment_review_show"
+        tools:layout="@layout/fragment_review_show" >
+        <action
+            android:id="@+id/action_reviewShowFragment_to_reviewEditFragment"
+            app:destination="@id/reviewEditFragment" />
+        <argument
+            android:name="subjectId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
 </navigation>

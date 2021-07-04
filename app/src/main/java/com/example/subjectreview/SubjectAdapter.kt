@@ -11,6 +11,12 @@ import io.realm.RealmRecyclerViewAdapter
 class SubjectAdapter(data: OrderedRealmCollection<Subject>) :
     RealmRecyclerViewAdapter<Subject, SubjectAdapter.ViewHolder>(data, true){
 
+    private var listener: ((Long?) -> Unit)? = null
+
+    fun setOnItemClickListener(listener:(Long?) -> Unit){
+        this.listener = listener
+    }
+
     init {
         setHasStableIds(true)
     }
@@ -28,6 +34,9 @@ class SubjectAdapter(data: OrderedRealmCollection<Subject>) :
     override fun onBindViewHolder(holder: SubjectAdapter.ViewHolder, position: Int) {
         val subject: Subject? = getItem(position)
         holder.title.text = subject?.title
+        holder.itemView.setOnClickListener{
+            listener?.invoke(subject?.id)
+        }
     }
 
     override fun getItemId(position: Int): Long {
