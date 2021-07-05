@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.subjectreview.SecondFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/subject_list_text"
         tools:layout="@layout/fragment_second">
 
         <action
@@ -42,24 +42,44 @@
     <fragment
         android:id="@+id/reviewEditFragment"
         android:name="com.example.subjectreview.ReviewEditFragment"
-        android:label="fragment_review_edit"
-        tools:layout="@layout/fragment_review_edit" >
+        android:label="@string/review_edit_text"
+        tools:layout="@layout/fragment_review_edit">
         <argument
             android:name="subjectId"
-            app:argType="long"
-            android:defaultValue="-1L" />
+            android:defaultValue="-1L"
+            app:argType="long" />
+        <argument
+            android:name="reviewId"
+            android:defaultValue="-1L"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/reviewShowFragment"
         android:name="com.example.subjectreview.ReviewShowFragment"
-        android:label="fragment_review_show"
-        tools:layout="@layout/fragment_review_show" >
+        android:label="@string/review_list_text"
+        tools:layout="@layout/fragment_review_show">
         <action
             android:id="@+id/action_reviewShowFragment_to_reviewEditFragment"
             app:destination="@id/reviewEditFragment" />
         <argument
             android:name="subjectId"
-            app:argType="long"
-            android:defaultValue="-1L" />
+            android:defaultValue="-1L"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_reviewShowFragment_to_reviewDetailFragment"
+            app:destination="@id/reviewDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewDetailFragment"
+        android:name="com.example.subjectreview.ReviewDetailFragment"
+        android:label="@string/review_detail_text"
+        tools:layout="@layout/fragment_review_detail">
+        <action
+            android:id="@+id/action_reviewDetailFragment_to_reviewEditFragment"
+            app:destination="@id/reviewEditFragment" />
+        <argument
+            android:name="reviewId"
+            android:defaultValue="-1L"
+            app:argType="long" />
     </fragment>
 </navigation>

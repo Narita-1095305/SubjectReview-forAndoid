@@ -45,10 +45,18 @@ class ReviewShowFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.list.layoutManager = LinearLayoutManager(context)
-        //引数をまだ渡してないので一旦科目評価を全部表示させるようにする。
-        val reviews = realm.where<Review>().findAll()
+
+        val reviews = realm.where<Review>().equalTo("subjectId", args.subjectId).findAll()
         val adapter = ReviewAdapter(reviews)
         binding.list.adapter = adapter
+
+        adapter.setOnItemClickListener { id->
+            id?.let {
+            val action =
+                ReviewShowFragmentDirections.actionReviewShowFragmentToReviewDetailFragment(it)
+            findNavController().navigate(action)
+            }
+        }
 
         view.findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
             val action = ReviewShowFragmentDirections.actionReviewShowFragmentToReviewEditFragment(args.subjectId)

@@ -1,5 +1,6 @@
 package com.example.subjectreview
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,11 @@ import java.util.*
 
 class ReviewAdapter(data: OrderedRealmCollection<Review>) :
     RealmRecyclerViewAdapter<Review, ReviewAdapter.ViewHolder>(data, true) {
+    private var listener: ((Long?) -> Unit)? = null
+
+    fun setOnItemClickListener(listener:(Long?) -> Unit){
+        this.listener = listener
+    }
 
     init {
         setHasStableIds(true)
@@ -29,8 +35,12 @@ class ReviewAdapter(data: OrderedRealmCollection<Review>) :
 
     override fun onBindViewHolder(holder: ReviewAdapter.ViewHolder, position: Int) {
         val review: Review? = getItem(position)
-        holder.point.text = review?.point.toString()
-        holder.detail.text = review?.detail
+        holder.point.text = "評価得点:"+review?.point.toString()
+        holder.detail.text = "詳細:"+review?.detail
+        holder.itemView.setBackgroundColor(if(position % 2 == 0) Color.LTGRAY else Color.WHITE)
+        holder.itemView.setOnClickListener{
+            listener?.invoke(review?.id)
+        }
     }
 
     override fun getItemId(position: Int): Long {

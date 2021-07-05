@@ -19,4 +19,9 @@
     <string name="teacher_name">担当教員名</string>
     <string name="point_text">授業評価(1～5)</string>
     <string name="detail_text">評価の詳細</string>
+    <string name="edit_button">編集</string>
+    <string name="subject_list_text">科目一覧</string>
+    <string name="review_list_text">評価一覧</string>
+    <string name="review_edit_text">レビュー編集画面</string>
+    <string name="review_detail_text">レビュー詳細画面</string>
 </resources>

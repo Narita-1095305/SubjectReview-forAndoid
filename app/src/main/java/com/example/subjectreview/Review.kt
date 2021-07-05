@@ -7,9 +7,9 @@ import java.util.*
 open class Review : RealmObject(){
     @PrimaryKey
     var id: Long = 0
+    var subjectId: Long = -1L
+    var year: Int = 0
     var date: Date = Date()
-    var year: Date = Date()
-    //var title: String = ""
     var teacher: String = ""
     var point: Int = 0
     var detail: String = ""

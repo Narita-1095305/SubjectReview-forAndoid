@@ -1,5 +1,6 @@
 package com.example.subjectreview
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,7 @@ class SubjectAdapter(data: OrderedRealmCollection<Subject>) :
     override fun onBindViewHolder(holder: SubjectAdapter.ViewHolder, position: Int) {
         val subject: Subject? = getItem(position)
         holder.title.text = subject?.title
+        holder.itemView.setBackgroundColor(if(position % 2 == 0) Color.LTGRAY else Color.WHITE)
         holder.itemView.setOnClickListener{
             listener?.invoke(subject?.id)
         }
