@@ -45,6 +45,10 @@ class ReviewDetailFragment : Fragment() {
             binding.teacherName.text = review?.teacher.toString()
             binding.reviewPoint.text = review?.point.toString()
             binding.reviewDetail.text = review?.detail.toString()
+
+            val subject = realm.where<Subject>().equalTo("id",review?.subjectId).findFirst()
+            binding.subjectName.text = subject?.title.toString()
+            
         }
 
         binding.deleteBtn.setOnClickListener{

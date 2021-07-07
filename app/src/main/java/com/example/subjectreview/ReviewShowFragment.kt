@@ -50,6 +50,8 @@ class ReviewShowFragment : Fragment() {
         val adapter = ReviewAdapter(reviews)
         binding.list.adapter = adapter
 
+        val subject = realm.where<Subject>().equalTo("id",args.subjectId).findFirst()
+        binding.subjectName.text = subject?.title.toString()
         adapter.setOnItemClickListener { id->
             id?.let {
             val action =
